@@ -8,12 +8,12 @@ const productSchema = new Schema(
         name: {type: String, required: true},
         quantity: {type: Number, required: true, min: 0, required: true},
         limit: {type: Number, min: 1, required: true},
-        nutritionInfo: {type: Schema.Types.Mixed, required: false},
+        timesOrdered: {type: Number, min: 0, required: true},
+        nutritionInfo: {type: Schema.Types.Mixed },
         picture: {
         data: Buffer,
         contentType: String,
-        required: false
     },
-    }
+    }, { timestamps: true}           
 )
 module.exports = mongoose.model("Product", productSchema)

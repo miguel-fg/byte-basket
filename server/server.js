@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+const productRoutes = require("./routes/products");
+
 // express app
 const app = express();
 app.use(cors());
@@ -18,6 +20,9 @@ app.use((req, res, next) => {
 
 // access json data
 app.use(express.json());
+
+// routes
+app.use("/api/products", productRoutes);
 
 // connect to DB
 mongoose.set("strictQuery", false);
