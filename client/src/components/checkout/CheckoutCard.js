@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Box, Card, Image, Text, Button, Stack } from "grommet";
 import { Add, Next, Previous, Subtract } from "grommet-icons";
 
-const CheckoutCard = ({ product }) => {
-    const [quantity, setQuantity] = useState(1);
+const CheckoutCard = ({ product,initialQuantity }) => {
+    const [quantity, setQuantity] = useState(initialQuantity);
 
     const increaseQuantity = () => setQuantity((qty) => qty + 1);
     const decreaseQuantity = () => setQuantity((qty) => Math.max(1, qty - 1));

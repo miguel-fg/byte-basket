@@ -10,10 +10,12 @@ import VolunteerPage from "./pages/VolunteerPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
+import { CartProvider } from "./components/cart-context/cartContext";
 
 function App() {
   return (
     <div className="App">
+    <CartProvider>
       <Router>
         <NavBar />
         <Routes>
@@ -25,6 +27,7 @@ function App() {
           <Route path="/volunteer" element={<VolunteerPage />} />
         </Routes>
       </Router>
+      </CartProvider>
     </div>
   );
 }

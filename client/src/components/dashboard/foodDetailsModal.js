@@ -16,9 +16,20 @@ import {
   TableRow,
 } from "grommet";
 import { Basket } from "grommet-icons";
+import { useCartContext } from "../cart-context/cartContext";
 
 function DetailsModal(props) {
-  const [buying, setBuying] = useState(0);
+
+    const [buying, setBuying] = useState(0);
+  const { addToCart } = useCartContext();
+
+  const handleAddToBasket = () => {
+    if (buying > 0) {
+        console.log("Adding to cart:", props, buying);
+        addToCart(props, buying);
+    }
+}
+
   return (
     <Card height="large" width="large" background="light-1">
       <CardHeader pad="medium">
@@ -43,7 +54,8 @@ function DetailsModal(props) {
               primary
               label="Add to Basket"
               fill="horizontal"
-              icon={<Basket color="white" />}
+              icon={<Basket color="white"
+              onClick={handleAddToBasket} />}
             />
             <TextInput
               type="number"
@@ -51,7 +63,7 @@ function DetailsModal(props) {
               width="xsmall"
               value={buying}
               textAlign="center"
-              onChange={(event) => setBuying(event.target.value)}
+              onChange={(event) => setBuying(Math.max(0, parseInt(event.target.value, 10)))}
             />
           </Box>
           <Box direction="column">
