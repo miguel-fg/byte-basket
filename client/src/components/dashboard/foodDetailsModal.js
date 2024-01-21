@@ -35,9 +35,8 @@ function DetailsModal(props) {
 
   const handleAddToCart = () => {
     let num = 1
-      if (num > 0) {
-          addToCart({ ...props, num });
-      }
+    addToCart({ ...props, num });
+    alert(`${props.name} was added to cart`);
   };  
 
   return (
@@ -80,7 +79,7 @@ function DetailsModal(props) {
         </Box>
       </CardBody>
       <CardFooter background="light-2" pad="small">
-        <Box direction="row" align="center">
+        <Box direction="row" align="center" gap="small">
           { !employee && 
           <Box direction="row" align="center" gap="small">
             <Button
