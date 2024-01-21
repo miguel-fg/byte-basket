@@ -2,8 +2,5 @@
 node_modules
 package-lock.json
 
-# environment variables 
-.env 
-
 # MAC
 .DS_Store
