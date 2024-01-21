@@ -2,6 +2,8 @@ const Product = require("../models/productModel");
 const asyncHandler = require("express-async-handler");
 const mongoose = require("mongoose");
 
+const { fetchNutritionalInfo } = require("../utils/nutritionService");
+
 // GET all products
 const get_products = asyncHandler(async (req, res, next) => {
     const products = await Product.find().sort({ createdAt: -1 }).exec();
@@ -53,6 +55,8 @@ const add_product = asyncHandler(async (req, res, next) => {
     });
 
     res.status(200).json(product);
+
+    updateProductNutritionInfo(product._id, product.name);
 });
 
 // DELETE a single product
@@ -73,10 +77,31 @@ const delete_product = asyncHandler(async (req, res, next) => {
     res.status(200).json(product);
 });
 
+// add product nutrition info
+const updateProductNutritionInfo = async (productId, productName) => {
+    const nutritionalInfo = await fetchNutritionalInfo(productName);
+
+    if(nutritionalInfo) {
+        try {
+            const updatedProduct = await Product.findByIdAndUpdate(
+                productId,
+                { $set: { nutritionInfo: nutritionalInfo }},
+                { new: true }
+            );
+
+            return updatedProduct;
+        } catch (error) {
+            console.error("Error updating product:", error.message);
+            return null;
+        }
+    }
+}
+
 module.exports = {
     get_products,
     get_single_product,
     get_number_products,
     add_product,
     delete_product,
+    updateProductNutritionInfo,
 };
