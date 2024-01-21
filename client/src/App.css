@@ -539,7 +539,7 @@ button:hover {
   font-size: 20px;
 }
 
-/* Dashboard */
+/************ Dashboard page Css ************/
 .cart-div {
   font-size: large;
 }
@@ -549,4 +549,9 @@ button:hover {
   color: #fff;
   padding: 10px;
   border-radius: 50px;
+}
+.inventory-title {
+  padding: 60px 0;
+  display: flex;
+  justify-content: space-between;
 }

@@ -54,7 +54,9 @@ const Support = () => {
           tabIndex="0"
         >
           <img src="/assets/support1.png" alt="" />
-          <h3>Inventory</h3>
+          <h3>
+            <b>Inventory</b>
+          </h3>
           <p>
             Effortlessly monitor and contribute to our inventory online,
             ensuring transparency and convenience in accessing and donating
@@ -72,7 +74,9 @@ const Support = () => {
           tabIndex="0"
         >
           <img src="/assets/support2.png" alt="" />
-          <h3>Give</h3>
+          <h3>
+            <b>Give</b>
+          </h3>
           <p>
             Contribute to our mission of alleviating hunger by supporting us
             through monetary donations and food contributions
@@ -89,7 +93,9 @@ const Support = () => {
           tabIndex="0"
         >
           <img src="/assets/support3.png" alt="" />
-          <h3>Volunteer</h3>
+          <h3>
+            <b>Volunteer</b>
+          </h3>
           <p>
             Join us in the fight against hunger by volunteering at our food bank
             and making a meaningful difference in the lives of those in need
