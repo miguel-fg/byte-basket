@@ -37,17 +37,23 @@ function DetailsModal(props) {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableCell>Nutrient</TableCell>
-                  <TableCell>Amount</TableCell>
+                  <TableCell><strong>Nutrient</strong></TableCell>
+                  <TableCell><strong>Amount</strong></TableCell>
                 </TableRow>
               </TableHeader>
               <tbody>
-                {Object.entries(props.nutrition).map(([nutrient, amount]) => (
-                  <TableRow key={nutrient}>
-                    <TableCell>{nutrient}</TableCell>
-                    <TableCell>{amount}</TableCell>
-                  </TableRow>
-                ))}
+                {Object.entries(props.nutrition).map(([nutrient, amount]) => {
+                  if (!amount.includes("undefined")) {
+                    return (
+                        <TableRow key={nutrient}>
+                            <TableCell>{nutrient}</TableCell>
+                            <TableCell>{amount}</TableCell>
+                        </TableRow>
+                    );
+                  } else {
+                      return <></>;
+                  }
+                })}
               </tbody>
             </Table>
           </Box>
