@@ -7,6 +7,8 @@ import Stat from "../components/home/Stat";
 import Sponsors from "../components/home/Sponsors";
 import Contact from "../components/home/Contact";
 import Footer from "../components/home/Footer";
+import Register from "./RegisterPage";
+
 import "../App.css";
 
 function Home() {
@@ -18,6 +20,7 @@ function Home() {
       <Sponsors />
       <Contact />
       <Footer />
+      <Register />
     </>
   );
 }

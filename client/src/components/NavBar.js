@@ -23,6 +23,9 @@ const NavBar = () => {
         <a className="navbar-link" href="#volunteer">
           Volunteer
         </a>
+        <Link className="navbar-link" to="/register">
+          Register
+        </Link>
         <a className="navbar-link" href="#signin">
           Sign In
         </a>

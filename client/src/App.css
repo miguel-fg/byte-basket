@@ -482,3 +482,29 @@ button:hover {
     box-sizing: border-box;
   }
 }
+
+/************ Register page Css ************/
+.register {
+  height: 85vh;
+  overflow: hidden;
+}
+.register .logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.register .logo-wrapper img {
+  width: 80px;
+}
+.register .logo-wrapper p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+.register .contact {
+  margin-top: 100px;
+}
+.register .contact button {
+  margin-top: 50px;
+}
