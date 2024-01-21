@@ -12,6 +12,7 @@ app.use(cors());
 // listen for requests
 const port = process.env.PORT;
 
+console.log(process.env)
 // request log
 app.use((req, res, next) => {
     console.log(req.path, req.method);
