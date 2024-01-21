@@ -15,6 +15,7 @@ const fetchNutritionalInfo = async (productName) => {
 
     try{
         const response = await axios.post(url, data, { headers });
+        console.log("Nutritionix API Response: ", response.data)
         return response.data.foods[0];
     } catch (error) {
         console.error('Error fetching nutritional information: ', error.message);

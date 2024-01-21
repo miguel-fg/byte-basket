@@ -44,19 +44,30 @@ const get_number_products = asyncHandler(async (req, res, next) => {
 // POST a new product
 const add_product = asyncHandler(async (req, res, next) => {
     const { name, quantity, limit, timesOrdered } = req.body;
+    
+    try{
+        // Fetch nutritional information before creating a product
+        const nutritionalInfo = await fetchNutritionalInfo(name);
+        
+        if(nutritionalInfo){
+            const product = await Product.create({
+                name,
+                quantity,
+                limit,
+                timesOrdered,
+                nutritionInfo: nutritionalInfo,
+            });
+            res.status(200).json(product);
+        } else {
+            console.error("Nutritional information not found for: ", name);
+            res.status(404).json({ error: "Nutritional information not found" });
+        }
+    
+    } catch (error) {
+        console.error("Error adding product: ", error.message);
+        res.status(500).json({ error: 'Internal Server Error'});
+    }
 
-    const product = await Product.create({
-        name,
-        quantity,
-        limit,
-        timesOrdered,
-        nutritionInfo: {},
-        picture: "",
-    });
-
-    res.status(200).json(product);
-
-    updateProductNutritionInfo(product._id, product.name);
 });
 
 // DELETE a single product
