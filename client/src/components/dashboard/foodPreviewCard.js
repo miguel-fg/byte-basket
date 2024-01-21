@@ -11,7 +11,6 @@ import {
   Heading,
   Image,
 } from "grommet";
-import { Basket } from "grommet-icons";
 import DetailsModal from "./foodDetailsModal";
 
 function PreviewCard(props) {

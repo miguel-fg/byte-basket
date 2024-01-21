@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { Page, PageContent, Grid, ResponsiveContext, Heading } from "grommet";
+import { Cart } from "grommet-icons";
 import PreviewCard from "./foodPreviewCard";
 
 function Dashboard() {
@@ -47,6 +49,11 @@ function Dashboard() {
       <PageContent background="light-1">
         <Heading weight="bold" level={1}>
           Inventory
+          <div className="cart-div">
+            <Link to={"/checkout"}>
+              <button><Cart color="#fff"/> Your Cart</button>
+            </Link>
+          </div>
         </Heading>
         <Grid columns={size !== "small" ? "small" : "100%"} gap="medium">
           {products.map((data, i) => (

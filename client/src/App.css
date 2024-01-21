@@ -508,3 +508,15 @@ button:hover {
 .register .contact button {
   margin-top: 50px;
 }
+
+/* Dashboard */
+.cart-div{
+  font-size: large;
+}
+
+.cart-div button{
+  background-color: #f18825;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50px;
+}
