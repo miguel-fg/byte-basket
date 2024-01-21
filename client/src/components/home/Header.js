@@ -3,9 +3,11 @@ const Header = () => {
     <header className="header">
       <div className="header-description">
         <h1>
-          University of British Columbia
-          <br />
-          Food Bank -
+          <b>
+            University of British Columbia
+            <br />
+            Food Bank -
+          </b>
         </h1>
         <h3>
           Building a Hunger-Free <br /> Community Together

@@ -19,6 +19,7 @@ import { Basket } from "grommet-icons";
 
 function DetailsModal(props) {
   const [buying, setBuying] = useState(0);
+
   return (
     <Card height="large" width="large" background="light-1">
       <CardHeader pad="medium">
@@ -33,6 +34,28 @@ function DetailsModal(props) {
             <Heading weight="bold" level={3}>
               Nutritional Information
             </Heading>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableCell><strong>Nutrient</strong></TableCell>
+                  <TableCell><strong>Amount</strong></TableCell>
+                </TableRow>
+              </TableHeader>
+              <tbody>
+                {Object.entries(props.nutrition).map(([nutrient, amount]) => {
+                  if (!amount.includes("undefined")) {
+                    return (
+                        <TableRow key={nutrient}>
+                            <TableCell>{nutrient}</TableCell>
+                            <TableCell>{amount}</TableCell>
+                        </TableRow>
+                    );
+                  } else {
+                      return <></>;
+                  }
+                })}
+              </tbody>
+            </Table>
           </Box>
         </Box>
       </CardBody>
