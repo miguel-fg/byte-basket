@@ -8,12 +8,13 @@ import RegisterPage from "./pages/RegisterPage";
 import SigninPage from "./pages/SigninPage";
 import VolunteerPage from "./pages/VolunteerPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { CartProvider } from "./context/CartContext";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
+      <CartProvider>
       <Router>
         <NavBar />
         <Routes>
@@ -25,6 +26,7 @@ function App() {
           <Route path="/volunteer" element={<VolunteerPage />} />
         </Routes>
       </Router>
+      </CartProvider>
     </div>
   );
 }

@@ -16,9 +16,19 @@ import {
   TableRow,
 } from "grommet";
 import { Basket } from "grommet-icons";
+import { CartContext } from "../../context/CartContext";
+import { useContext } from "react";
+
 
 function DetailsModal(props) {
+  const { addToCart } = useContext(CartContext);
   const [buying, setBuying] = useState(0);
+
+  const handleAddToCart = () => {
+      if (buying > 0) {
+          addToCart({ ...props, buying });
+      }
+  };  
 
   return (
     <Card height="large" width="large" background="light-1">
@@ -67,6 +77,7 @@ function DetailsModal(props) {
               label="Add to Basket"
               fill="horizontal"
               icon={<Basket color="white" />}
+              onClick={handleAddToCart}
             />
             <TextInput
               type="number"
