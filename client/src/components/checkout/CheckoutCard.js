@@ -32,12 +32,13 @@ const CheckoutCard = ({ product }) => {
                 align="center"
                 justify="center"
                 overflow="hidden"
-            >
+            >   
+             {product.nutritionInfo && product.nutritionInfo.photo && (
                 <Image
                     fit="contain"
                     src={product.nutritionInfo.photo.thumb}
                     style={{ maxWidth: "80%", maxHeight: "80%" }}
-                />
+                />)}
             </Box>
 
             {/* Quantity with Add/Subtract Buttons */}
