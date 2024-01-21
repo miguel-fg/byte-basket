@@ -20,9 +20,17 @@ import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 
 
+import { useAuthContext } from "../../hooks/useAuthContext";
+
 function DetailsModal(props) {
   const { addToCart } = useContext(CartContext);
   const [buying, setBuying] = useState(0);
+  const { user } = useAuthContext();
+  let employee = false;
+
+  if (user && user.email.endsWith("@bytebasket.tech")) {
+      employee = true;
+  }
 
   const handleAddToCart = () => {
       if (buying > 0) {
@@ -71,6 +79,7 @@ function DetailsModal(props) {
       </CardBody>
       <CardFooter background="light-2" pad="small">
         <Box direction="row" align="center">
+          { !employee && 
           <Box direction="row" align="center" gap="small">
             <Button
               primary
@@ -87,7 +96,7 @@ function DetailsModal(props) {
               textAlign="center"
               onChange={(event) => setBuying(event.target.value)}
             />
-          </Box>
+          </Box>}
           <Box direction="column">
             {props.quantity > 0 ? (
               <Text>{props.quantity} items available</Text>

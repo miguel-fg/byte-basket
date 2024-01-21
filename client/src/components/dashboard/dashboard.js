@@ -1,12 +1,20 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Page, PageContent, Grid, ResponsiveContext, Heading } from "grommet";
+import { Page, PageContent, Grid, ResponsiveContext, Heading, Box } from "grommet";
 import { Cart } from "grommet-icons";
 import PreviewCard from "./foodPreviewCard";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 function Dashboard() {
   const size = useContext(ResponsiveContext);
+  const { user } = useAuthContext();
   const [products, setProducts] = useState([]);
+  let employee = false;
+
+  if (user && user.email.endsWith("@bytebasket.tech")) {
+      employee = true;
+  }
+
 
   useEffect(() => {
     fetch("/api/products")
@@ -48,14 +56,22 @@ function Dashboard() {
   return (
     <Page kind="full" height="100%">
       <PageContent background="light-1">
-        <Heading weight="bold" level={1}>
-          Inventory
-          <div className="cart-div">
-            <Link to={"/checkout"}>
-              <button><Cart color="#fff"/> Your Cart</button>
-            </Link>
-          </div>
-        </Heading>
+        <Box align="center" justify="between" direction="row" fill="horizontal" width="100%">
+            <Heading weight="bold" level={1}>
+                Inventory
+            </Heading>
+            { !employee && 
+            <>    
+            <br/>
+            <div className="cart-div">
+                <Link to={"/checkout"}>
+                    <button><Cart color="#fff"/> Your Cart</button>
+                </Link>
+            </div>
+            </>
+            }
+        </Box>
+        <br/>
         <Grid columns={size !== "small" ? "small" : "100%"} gap="medium">
           {products.map((data, i) => (
             <PreviewCard key={i} {...data} />
