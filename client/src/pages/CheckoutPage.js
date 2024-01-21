@@ -25,13 +25,6 @@ const CheckoutPage = () => {
         <Grommet theme={grommet}>
             <Box fill align="center" justify="start" pad="large">
                 <Heading level="1">Checkout</Heading>
-                <Box width="medium" margin={{ bottom: "medium" }}>
-                    <DateInput
-                        format="mm/dd/yyyy"
-                        value={date}
-                        onChange={({ value }) => setDate(value)}
-                    />
-                </Box>
                 <Grid
                     rows={["auto", "auto"]} // Adjusted to manage the row size automatically
                     columns={["1/2", "1/2"]} // Two columns of equal width
@@ -41,7 +34,20 @@ const CheckoutPage = () => {
                         <CheckoutCard key={product.id} product={product} />
                     ))}
                 </Grid>
-                <Button primary label="Order" margin={{ top: "medium" }} />
+                <Box direction="row" gap="medium" align="center" margin={{ top: "medium", bottom: "medium" }}>
+                    <Box width="medium">
+                        <DateInput
+                            format="mm/dd/yyyy"
+                            value={date}
+                            onChange={({ value }) => setDate(value)}
+                        />
+                    </Box>
+                    <Button 
+                        primary 
+                        label="Order" 
+                        disabled={!date} // Button is disabled if no date is selected
+                    />
+                </Box>
             </Box>
         </Grommet>
     );
