@@ -18,10 +18,17 @@ import {
 import { Basket } from "grommet-icons";
 
 import { useShoppingCart } from "../../context/ShoppingCartContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 function DetailsModal(props) {
   const [buying, setBuying] = useState(0);
   const { addToCart } = useShoppingCart();
+  const { user } = useAuthContext();
+  let employee = false;
+
+  if (user && user.email.endsWith("@bytebasket.tech")) {
+      employee = true;
+  }
 
   const handleAddToCart = () => {
     const cartItem = {
@@ -73,6 +80,7 @@ function DetailsModal(props) {
       </CardBody>
       <CardFooter background="light-2" pad="small">
         <Box direction="row" align="center">
+          { !employee && 
           <Box direction="row" align="center" gap="small">
             <Button
               primary
@@ -89,7 +97,7 @@ function DetailsModal(props) {
               textAlign="center"
               onChange={(event) => setBuying(event.target.value)}
             />
-          </Box>
+          </Box>}
           <Box direction="column">
             {props.quantity > 0 ? (
               <Text>{props.quantity} items available</Text>
