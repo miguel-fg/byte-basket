@@ -1,6 +1,5 @@
 // NavBar.js
-
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // user context
 import { useAuthContext } from "../hooks/useAuthContext";
@@ -12,8 +11,11 @@ const NavBar = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
 
+  const navigate = useNavigate();
+
   const handleClick = () => {
     logout();
+    navigate("/");
   };
 
   return (
@@ -30,9 +32,11 @@ const NavBar = () => {
         <Link className="navbar-link" to="/">
           Home
         </Link>
+        {user && (
         <Link className="navbar-link" to="/dashboard">
           Dashboard
         </Link>
+        )}
         <Link className="navbar-link" to="/volunteer">
           Volunteer
         </Link>
