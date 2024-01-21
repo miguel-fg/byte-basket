@@ -32,9 +32,11 @@ function DetailsModal(props) {
       employee = true;
   }
 
+
   const handleAddToCart = () => {
-      if (buying > 0) {
-          addToCart({ ...props, buying });
+    let num = 1
+      if (num > 0) {
+          addToCart({ ...props, num });
       }
   };  
 
@@ -88,14 +90,14 @@ function DetailsModal(props) {
               icon={<Basket color="white" />}
               onClick={handleAddToCart}
             />
-            <TextInput
+            {/* <TextInput
               type="number"
               small="size"
               width="xsmall"
               value={buying}
               textAlign="center"
               onChange={(event) => setBuying(event.target.value)}
-            />
+            /> */}
           </Box>}
           <Box direction="column">
             {props.quantity > 0 ? (
