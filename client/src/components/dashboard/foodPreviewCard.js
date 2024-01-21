@@ -11,7 +11,7 @@ import {
   Heading,
   Image,
 } from "grommet";
-import {Trash} from "grommet-icons";
+import { Trash } from "grommet-icons";
 import DetailsModal from "./foodDetailsModal";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
@@ -68,6 +68,7 @@ function PreviewCard(props) {
       </CardBody>
       <CardFooter pad="small" background="light-2">
         <Button
+          className="inventory-btn"
           primary
           label="View details"
           alignSelf="center"
@@ -77,7 +78,7 @@ function PreviewCard(props) {
           <>
             <Button
               secondary
-              icon={<Trash color="red"/>}
+              icon={<Trash color="red" />}
               alignSelf="center"
               onClick={() => deleteProduct}
             />

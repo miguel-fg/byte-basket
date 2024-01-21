@@ -555,3 +555,6 @@ button:hover {
   display: flex;
   justify-content: space-between;
 }
+.inventory-btn {
+  color: #fff !important;
+}
