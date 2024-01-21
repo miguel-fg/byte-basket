@@ -17,26 +17,15 @@ import {
 } from "grommet";
 import { Basket } from "grommet-icons";
 
-import { useShoppingCart } from "../../context/ShoppingCartContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 function DetailsModal(props) {
   const [buying, setBuying] = useState(0);
-  const { addToCart } = useShoppingCart();
   const { user } = useAuthContext();
   let employee = false;
 
   if (user && user.email.endsWith("@bytebasket.tech")) {
       employee = true;
-  }
-
-  const handleAddToCart = () => {
-    const cartItem = {
-      productName: props.name,
-      quantity: buying 
-    };
-
-    addToCart(cartItem);
   }
 
   return (
@@ -87,7 +76,6 @@ function DetailsModal(props) {
               label="Add to Basket"
               fill="horizontal"
               icon={<Basket color="white" />}
-              onClick={handleAddToCart}
             />
             <TextInput
               type="number"
