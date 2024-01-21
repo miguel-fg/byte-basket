@@ -9,6 +9,9 @@ const {
     delete_product,
 } = require("../controllers/productController");
 
+// authentication middleware
+const requireAuth = require("../middleware/requireAuth");
+
 const router = express.Router();
 
 // GET all products
@@ -21,9 +24,9 @@ router.get("/:id", get_single_product);
 router.get("/limit/:num", get_number_products);
 
 // POST a new product
-router.post("/", add_product);
+router.post("/", requireAuth , add_product);
 
 // DELETE a single product
-router.delete("/:id", delete_product);
+router.delete("/:id", requireAuth, delete_product);
 
 module.exports = router;
