@@ -32,10 +32,11 @@ function DetailsModal(props) {
       employee = true;
   }
 
+
   const handleAddToCart = () => {
-      if (buying > 0) {
-          addToCart({ ...props, buying });
-      }
+    let num = 1
+    addToCart({ ...props, num });
+    alert(`${props.name} was added to cart`);
   };  
 
   return (
@@ -78,7 +79,7 @@ function DetailsModal(props) {
         </Box>
       </CardBody>
       <CardFooter background="light-2" pad="small">
-        <Box direction="row" align="center">
+        <Box direction="row" align="center" gap="small">
           { !employee && 
           <Box direction="row" align="center" gap="small">
             <Button
@@ -88,14 +89,14 @@ function DetailsModal(props) {
               icon={<Basket color="white" />}
               onClick={handleAddToCart}
             />
-            <TextInput
+            {/* <TextInput
               type="number"
               small="size"
               width="xsmall"
               value={buying}
               textAlign="center"
               onChange={(event) => setBuying(event.target.value)}
-            />
+            /> */}
           </Box>}
           <Box direction="column">
             {props.quantity > 0 ? (

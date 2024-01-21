@@ -10,7 +10,9 @@ const CheckoutPage = () => {
     const [date, setDate] = useState(); // State to store the date
     const { cartItems } = useContext(CartContext);
 
-
+    const placeOrder = () => {
+        alert(`Order was placed! See you on soon!`);
+    }
     // useEffect(() => {
     //     const fetchProducts = async () => {
     //         try {
@@ -50,6 +52,7 @@ const CheckoutPage = () => {
                         primary 
                         label="Order" 
                         disabled={!date} // Button is disabled if no date is selected
+                        onClick={placeOrder}
                     />
                 </Box>
             </Box>
