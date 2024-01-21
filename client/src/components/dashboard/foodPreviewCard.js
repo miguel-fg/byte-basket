@@ -37,8 +37,7 @@ function PreviewCard(props) {
       <CardFooter pad="small" background="light-2">
         <Button
           primary
-          label="Add to Basket"
-          icon={<Basket color="white" />}
+          label="View details"
           alignSelf="center"
           fill="horizontal"
           onClick={() => setShowLayer(true)}
