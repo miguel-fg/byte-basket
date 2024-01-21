@@ -508,13 +508,43 @@ button:hover {
 .register .contact button {
   margin-top: 50px;
 }
+/************ Volunteer page Css ************/
+.volunteer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+}
+.volunteer h2 {
+  font-size: 60px;
+}
+.volunteer-desc {
+  margin-top: 10px;
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  padding: 0 10px;
+}
+.volunteer .support {
+  margin-top: 40px;
+}
+.volunteer-button {
+  background-color: #f18825;
+  color: #fff;
+  width: 200px;
+  height: 70px;
+  border-radius: 50px;
+  margin-top: 40px;
+  font-size: 20px;
+}
 
 /* Dashboard */
-.cart-div{
+.cart-div {
   font-size: large;
 }
 
-.cart-div button{
+.cart-div button {
   background-color: #f18825;
   color: #fff;
   padding: 10px;

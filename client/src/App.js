@@ -6,6 +6,7 @@ import DashboardPage from "./pages/DashboardPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import RegisterPage from "./pages/RegisterPage";
 import SigninPage from "./pages/SigninPage";
+import VolunteerPage from "./pages/VolunteerPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
@@ -21,6 +22,7 @@ function App() {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/signin" element={<SigninPage />} />
+          <Route path="/volunteer" element={<VolunteerPage />} />
         </Routes>
       </Router>
     </div>
