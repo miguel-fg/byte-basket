@@ -17,8 +17,20 @@ import {
 } from "grommet";
 import { Basket } from "grommet-icons";
 
+import { useShoppingCart } from "../../context/ShoppingCartContext";
+
 function DetailsModal(props) {
   const [buying, setBuying] = useState(0);
+  const { addToCart } = useShoppingCart();
+
+  const handleAddToCart = () => {
+    const cartItem = {
+      productName: props.name,
+      quantity: buying 
+    };
+
+    addToCart(cartItem);
+  }
 
   return (
     <Card height="large" width="large" background="light-1">
@@ -67,6 +79,7 @@ function DetailsModal(props) {
               label="Add to Basket"
               fill="horizontal"
               icon={<Basket color="white" />}
+              onClick={handleAddToCart}
             />
             <TextInput
               type="number"
