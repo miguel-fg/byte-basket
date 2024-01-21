@@ -5,7 +5,7 @@ const Footer = () => {
       <div className="footer">
         <div className="logo">
           <p className="logo-description">
-            çCopyright 2024. All Rights Reserved.
+            Copyright 2024. All Rights Reserved.
           </p>
         </div>
         <div className="footer-links">
