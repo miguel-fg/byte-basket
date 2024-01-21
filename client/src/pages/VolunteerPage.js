@@ -59,7 +59,9 @@ const VolunteerPage = () => {
         >
           <img src="/assets/volunteer1.png" alt="" />
           <h3>
-            Meaningful <br /> Impact
+            <b>
+              Meaningful <br /> Impact
+            </b>
           </h3>
           <p>
             Contribute to the fight against hunger and help us provide essential
@@ -78,7 +80,9 @@ const VolunteerPage = () => {
           tabIndex="0"
         >
           <img src="/assets/volunteer2.png" alt="" />
-          <h3>Stronger Community</h3>
+          <h3>
+            <b>Stronger Community</b>
+          </h3>
           <p>
             Be a catalyst for positive change by fostering a sense of community
             and solidarity. Join like-minded individuals who share the common
@@ -96,7 +100,9 @@ const VolunteerPage = () => {
           tabIndex="0"
         >
           <img src="/assets/volunteer3.png" alt="" />
-          <h3>Flexible Opportunities</h3>
+          <h3>
+            <b>Flexible Opportunities</b>
+          </h3>
           <p>
             We understand that your time is valuable. That's why we offer
             flexible volunteering options that fit your schedule, whether it's a
