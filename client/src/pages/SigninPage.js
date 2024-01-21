@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { Col, Row, Container } from "react-bootstrap";
 
 // login hook
@@ -9,12 +9,15 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const { login, error, isLoading } = useLogin();
 
   const handleSubmit = async (e) => {
       e.preventDefault();
 
       await login(email, password);
+      navigate("/dashboard");
   };
 
   return (
