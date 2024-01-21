@@ -28,15 +28,15 @@ function PreviewCard(props) {
   }
 
   const deleteProduct = async () => {
-    // delete request to api/products/:id
-    // needs auth headers
+    console.log("time to delete!")
     if (!user) {
       return;
     }
 
-    const id = props._id;
+    const id = props.id;
+    const apiURI = `/api/products/${id}`;
 
-    const response = await fetch(`/api/products/${id}`, {
+    const response = await fetch(apiURI, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,
@@ -46,6 +46,7 @@ function PreviewCard(props) {
 
     if (response.ok) {
       console.log("Successfully deleted product");
+      window.location.reload();
     }
   };
 
@@ -80,7 +81,7 @@ function PreviewCard(props) {
               secondary
               icon={<Trash color="red" />}
               alignSelf="center"
-              onClick={() => deleteProduct}
+              onClick={deleteProduct}
             />
           </>
         )}
