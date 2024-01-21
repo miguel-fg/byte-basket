@@ -8,7 +8,7 @@ const customTheme = {
     },
   },
   button: {
-    extend: `
+      primary:`
         background-color: #F18825;
         border: 1px solid #F18825;
         color: white;

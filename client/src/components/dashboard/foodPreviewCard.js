@@ -11,6 +11,7 @@ import {
   Heading,
   Image,
 } from "grommet";
+import {Trash} from "grommet-icons";
 import DetailsModal from "./foodDetailsModal";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
@@ -70,17 +71,14 @@ function PreviewCard(props) {
           primary
           label="View details"
           alignSelf="center"
-          fill="horizontal"
           onClick={() => setShowLayer(true)}
         />
         {employee && (
           <>
-            <br />
             <Button
-              danger
-              label="Delete"
+              secondary
+              icon={<Trash color="red"/>}
               alignSelf="center"
-              fill="horizontal"
               onClick={() => deleteProduct}
             />
           </>
